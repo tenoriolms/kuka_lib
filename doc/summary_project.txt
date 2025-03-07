@@ -1,0 +1,61 @@
+G:/Meu Drive/0_meu_computador/tudo_o_que_precisa_esta_aqui/module_pip/kuka_lib/
+.vscode/
+└── settings.json
+LICENSE
+README.md
+build/
+├── bdist.win-amd64/
+└── lib/
+│   └── kuka/
+│   │   ├── __init__.py
+│   │   ├── plot/
+│   │   │   ├── __init__.py
+│   │   │   └── _plt_hist_of_columns.py
+│   │   └── utils/
+│   │   │   ├── __init__.py
+│   │   │   └── __input_type_validation.py
+dist/
+├── kuka-0.1.0-py3-none-any.whl
+└── kuka-0.1.0.tar.gz
+kuka/
+├── __init__.py
+├── __pycache__/
+│   ├── __init__.cpython-311.pyc
+│   └── plot.cpython-311.pyc
+├── misc/
+│   ├── __init__.py
+│   ├── __pycache__/
+│   │   ├── __init__.cpython-311.pyc
+│   │   ├── get_key.cpython-311.pyc
+│   │   └── imp_exp_pkl.cpython-311.pyc
+│   ├── get_key.py
+│   └── imp_exp_pkl.py
+├── plot/
+│   ├── __init__.py
+│   ├── __pycache__/
+│   │   ├── __init__.cpython-311.pyc
+│   │   ├── _plt_hist_of_columns.cpython-311.pyc
+│   │   └── a.cpython-311.pyc
+│   ├── _plt_hist_of_columns.py
+│   └── cat_plot.py
+├── preprocessing/
+│   ├── __init__.py
+│   ├── cat_cols.py
+│   └── num_cols.py
+├── score/
+│   ├── __init__.py
+│   ├── categorization.py
+│   └── regression.py
+└── utils/
+│   ├── __init__.py
+│   ├── __input_type_validation.py
+│   └── __pycache__/
+│   │   ├── __init__.cpython-311.pyc
+│   │   └── __input_type_validation.cpython-311.pyc
+kuka.egg-info/
+├── PKG-INFO
+├── SOURCES.txt
+├── dependency_links.txt
+├── requires.txt
+└── top_level.txt
+setup.py

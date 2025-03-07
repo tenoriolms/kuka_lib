@@ -53,6 +53,11 @@ def __input_type_validation(func):
     arg_names = input_names[:len(args)]
     args_dict = dict(zip(arg_names, args))
 
+    #### 2.1. Remove the agrs from the defaults_dict ####
+    # Sometimes default variables are called like the args, 
+    # so we need to remove them from the defaults_dict
+    defaults_dict = {k: defaults_dict[k] for k in set( defaults_dict.keys() ) - set( args_dict.keys() )}
+
     #### 3. Merge the dictionaries with ALL the arguments and its values ####
     input_dict = {**args_dict, **kwargs, **defaults_dict}
 
