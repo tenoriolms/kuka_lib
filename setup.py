@@ -2,10 +2,10 @@ from setuptools import setup, find_packages
 
 setup(
     name="kuka",  # Nome do pacote
-    version="0.1.0",    # Versão inicial
+    version="0.2.0",    # Versão inicial
     author="tenoriolms",
     description="Personal library for EDA, data modeling, and ML modeling analysis/interpretation",
-    long_description=open("README.md").read(),  # Descrição longa
+    long_description='',#open("README.md").read(),  # Descrição longa
     long_description_content_type="text/markdown",  # Para suportar Markdown
     url="https://github.com/tenoriolms/kuka_lib", # Repositório do projeto
     packages=find_packages(),  # Encontra automaticamente subpacotes
