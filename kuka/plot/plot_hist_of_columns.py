@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from .. import utils
 
 @utils.__input_type_validation
-def plt_hist_of_columns(
+def plot_hist_of_columns(
   df,
 
   _input_type_dict = {
@@ -14,8 +14,10 @@ def plt_hist_of_columns(
 
   ) -> None:
   '''
-  Plot a histogram for each numeric column of a 
-  dataframe in a more organized way than just calling pandas hist()
+  Plot a histogram for each numeric column of a dataframe in a
+  more organized and secury way than just calling pandas hist().
+  
+  The function recognize and plot histogram only numeric columns
   '''
   def put_labels(ax_list):
     for row in ax_list:

@@ -7,12 +7,14 @@ setup(
     description="Personal library for EDA, data modeling, and ML modeling analysis/interpretation",
     long_description=open("README.md").read(),  # Descrição longa
     long_description_content_type="text/markdown",  # Para suportar Markdown
-    url="", # Repositório do projeto
+    url="https://github.com/tenoriolms/kuka_lib", # Repositório do projeto
     packages=find_packages(),  # Encontra automaticamente subpacotes
     install_requires=[
         'numpy', 
         'pandas', 
-        'matplotlib'
+        'matplotlib',
+        'scipy',
+        'graphviz',
         ],  
     classifiers=[
         "Programming Language :: Python :: 3",
