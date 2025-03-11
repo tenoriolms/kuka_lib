@@ -81,26 +81,6 @@ If theres no constraint for a variable, use `object` as the type.
 
 --------------------------------------------------
 
-## __input_type_validation.py:__type_validation
-**Parameters:** `input_dict`
-
-**Description:**
-```python
-No description available
-```
-
---------------------------------------------------
-
-## __input_type_validation.py:wrapper
-**Parameters:** ``
-
-**Description:**
-```python
-No description available
-```
-
---------------------------------------------------
-
 ## _plt_hist_of_columns.py:plt_hist_of_columns
 **Parameters:** `df, _input_type_dict={'df': type(pd.DataFrame())}`
 
@@ -115,40 +95,20 @@ dataframe in a more organized way than just calling pandas hist()
 ## _plt_hist_of_columns.py:put_labels
 **Parameters:** `ax_list`
 
-**Description:**
-```python
-No description available
-```
-
 --------------------------------------------------
 
 ## cat_cols.py:str2int_hot_encoder
 **Parameters:** `df, columns='all', _input_type_dict={'df': pd.DataFrame, 'columns': (str, list, tuple)}`
-
-**Description:**
-```python
-No description available
-```
 
 --------------------------------------------------
 
 ## cat_cols.py:str2int_simple_encoder
 **Parameters:** `df, columns='all', _input_type_dict={'df': pd.DataFrame, 'columns': (str, list, tuple)}`
 
-**Description:**
-```python
-No description available
-```
-
 --------------------------------------------------
 
 ## categorization.py:classification_metrics
 **Parameters:** `y_real, y_pred, _input_type_dict={'y_real': np.ndarray, 'y_pred': np.ndarray}`
-
-**Description:**
-```python
-No description available
-```
 
 --------------------------------------------------
 
@@ -170,11 +130,6 @@ Para melhor compreender esse cógido, ler antes o código da função "plot_stac
 
 ## draw_tree.py:draw_tree
 **Parameters:** `t, dados, size=10, ratio=1, precision=0, _input_type_dict={'t': object, 'dados': pd.DataFrame, 'size': int}`
-
-**Description:**
-```python
-No description available
-```
 
 --------------------------------------------------
 
@@ -206,11 +161,6 @@ Examples:
 
 ## heatmap_corr.py:heatmap_corr
 **Parameters:** `df, x='all', y='all', method='pearson', min_periods=1, color='di', _input_type_dict={'df': pd.DataFrame, 'x': (str, list, str), 'y': (str, list, str), 'method': str, 'min_periods': int, 'color': str}`
-
-**Description:**
-```python
-No description available
-```
 
 --------------------------------------------------
 
@@ -249,86 +199,6 @@ This function exports a variable of python as pickle file to the "path".
 ```python
 This function returns a an variable after define it according to a pickle file in "path".
 "path" NEEDS contain the name of the file.
-```
-
---------------------------------------------------
-
-## info.py:__getattr__
-**Parameters:** `self, name`
-
-**Description:**
-```python
-No description available
-```
-
---------------------------------------------------
-
-## info.py:__init__
-**Parameters:** `self, folder=None, level=0`
-
-**Description:**
-```python
-No description available
-```
-
---------------------------------------------------
-
-## info.py:_list_dir_content
-**Parameters:** `self, just_consult=False`
-
-**Description:**
-```python
-No description available
-```
-
---------------------------------------------------
-
-## info.py:info.__getattr__
-**Parameters:** `self, name`
-
-**Description:**
-```python
-No description available
-```
-
---------------------------------------------------
-
-## info.py:info.__init__
-**Parameters:** `self, folder=None, level=0`
-
-**Description:**
-```python
-No description available
-```
-
---------------------------------------------------
-
-## info.py:info._list_dir_content
-**Parameters:** `self, just_consult=False`
-
-**Description:**
-```python
-No description available
-```
-
---------------------------------------------------
-
-## info.py:info.ls
-**Parameters:** `self`
-
-**Description:**
-```python
-No description available
-```
-
---------------------------------------------------
-
-## info.py:ls
-**Parameters:** `self`
-
-**Description:**
-```python
-No description available
 ```
 
 --------------------------------------------------
@@ -417,20 +287,10 @@ desfazer a normalização realizada para cada coluna de um DataFrame
 ## permutation_importance.py:permutation_importance
 **Parameters:** `model, x_val, y_val, n_repeats=5, scoring='r2', _input_type_dict={'model': object, 'x_val': np.ndarray, 'y_val': np.ndarray, 'n_repeats': int, 'scoring': str}`
 
-**Description:**
-```python
-No description available
-```
-
 --------------------------------------------------
 
 ## plot_confusion_matrix.py:plot_confusion_matrix
 **Parameters:** `y_true, y_pred, labels=None, cmap='Blues', figsize=(6, 5), _input_type_dict={'y_true': (np.ndarray, list), 'y_pred': (np.ndarray, list), 'labels': (list, tuple, None), 'cmap': str, 'figsize': (tuple, list)}`
-
-**Description:**
-```python
-No description available
-```
 
 --------------------------------------------------
 
@@ -444,17 +304,6 @@ more organized and secury way than just calling pandas hist().
 
 The function recognize and plot histogram only numeric columns
 ```
-
---------------------------------------------------
-
-## plot_hist_of_columns.py:put_labels
-**Parameters:** `ax_list`
-
-**Description:**
-```python
-No description available
-```
-
 --------------------------------------------------
 
 ## plot_permutation_importance.py:plot_permutation_importance
@@ -473,53 +322,13 @@ bycolor = {'variável1':'color1',
 
 --------------------------------------------------
 
-## plot_plairplot.py:definicoes_de_cada_grafico
-**Parameters:** ``
-
-**Description:**
-```python
-No description available
-```
-
---------------------------------------------------
-
 ## plot_plairplot.py:plot_plairplot
 **Parameters:** `df, columns=['all'], color_by='', figsize='default', colors_reference=['black', '#023eff', '#ff7c00', '#1ac938', '#e8000b', '#8b2be2', '#9f4800', '#f14cc1', '#a3a3a3', '#ffc400', '#00d7ff'], dict_colors_of_variable_by=False, wspace=0.12, hspace=0.12, major_label_off=False, tick_labelsize=matplotlib.rcParams['font.size'], tick_format='{x:.4g}', margins=0.08, _input_type_dict={'df': pd.DataFrame, 'columns': (list, tuple), 'color_by': str, 'figsize': (list, tuple, str), 'colors_reference': (list, tuple), 'dict_colors_of_variable_by': (bool, dict), 'wspace': (int, float), 'hspace': (int, float), 'major_label_off': bool, 'tick_labelsize': (int, float), 'tick_format': str, 'margins': (int, float)}`
-
-**Description:**
-```python
-No description available
-```
-
---------------------------------------------------
-
-## plot_predictions.py:mape
-**Parameters:** `v_real, v_pred`
-
-**Description:**
-```python
-No description available
-```
 
 --------------------------------------------------
 
 ## plot_predictions.py:plot_predictions
 **Parameters:** `y_real='list', y_pred='list', figsize=[15.0, 6.0], y_scale='default', put_major_label_tick_every='default', put_minor_label_tick_every='default', show_error_axis=True, error_axis='absolute or relative', font_size=11.0, report_big_relative_errors=True, big_errors_limit=100, _input_type_dict={'y_real': (list, tuple, np.ndarray), 'y_pred': (list, tuple, np.ndarray), 'figsize': (list, tuple), 'y_scale': str, 'put_major_label_tick_every': (str, int, float), 'put_minor_label_tick_every': (str, int, float), 'show_error_axis': bool, 'error_axis': str, 'font_size': (int, float), 'report_big_relative_errors': bool, 'big_errors_limit': (int, float)}`
-
-**Description:**
-```python
-No description available
-```
-
---------------------------------------------------
-
-## plot_predictions.py:rmse
-**Parameters:** `v_real, v_pred`
-
-**Description:**
-```python
-No description available
-```
 
 --------------------------------------------------
 
@@ -546,11 +355,6 @@ O modo 'hist' serve apenas para quando "variable" possui valores numéricos.
 
 ## plotar_importancias.py:plotar_importancias
 **Parameters:** `modelo, tags, n=10, _input_type_dict={'modelo': object, 'tags': (list, tuple), 'n': int}`
-
-**Description:**
-```python
-No description available
-```
 
 --------------------------------------------------
 
@@ -599,11 +403,6 @@ IMPLEMENTAR AINDA
 ## regression.py:mape
 **Parameters:** `v_real, v_pred`
 
-**Description:**
-```python
-No description available
-```
-
 --------------------------------------------------
 
 ## regression.py:predictions_separate_by_a_variable
@@ -645,20 +444,10 @@ IMPLEMENTAR AINDA
 ## regression.py:r2
 **Parameters:** `v_real, v_pred`
 
-**Description:**
-```python
-No description available
-```
-
 --------------------------------------------------
 
 ## regression.py:rmse
 **Parameters:** `v_real, v_pred`
-
-**Description:**
-```python
-No description available
-```
 
 --------------------------------------------------
 
