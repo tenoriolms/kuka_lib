@@ -1,3 +1,8 @@
+🔧 Install Library (https://pypi.org/project/kuka/)
+```
+pip install kuka
+```
+
 # 📁 Directory Summary
 
 ```
