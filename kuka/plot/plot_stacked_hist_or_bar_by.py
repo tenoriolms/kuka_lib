@@ -30,8 +30,8 @@ def plot_stacked_hist_or_bar_by(
         'mode': str,
         'alpha': (float, int),
         'colors_reference': list,
-        'dict_colors_of_variable_by': bool, #Dicionario para ditar a cor de cada valor para "unique_by"
-        'figsize': list,
+        'dict_colors_of_variable_by': (bool, dict), #Dicionario para ditar a cor de cada valor para "unique_by"
+        'figsize': (list, tuple),
         'width_bar': (str, int, float),
         'bar_norm': bool,
         'bar_labels': bool,
@@ -39,7 +39,7 @@ def plot_stacked_hist_or_bar_by(
         'x_log_scale_hist': bool,
         'hist_average_line': bool,
         'use_external_fig_and_ax': bool,
-        'external_fig_and_ax': (tuple, list),
+        'external_fig_and_ax': (str, tuple, list),
         'verbose': bool,
     },
     

@@ -24,14 +24,15 @@ def heatmap_corr(
 
     ) -> pd.DataFrame :
 
+  df = df.loc[:, x+y]
   corr_pear = df.corr( min_periods=min_periods, method=method )
 
   if (x=='all'):
     x = corr_pear.columns.tolist()
-  #print(x)
+    
   if (y=='all'):
     y = corr_pear.columns.tolist()
-  #print(y)
+
   heatmap_pearson = pd.DataFrame( columns=x, index=y )
   heatmap_pearson = corr_pear.loc[y,x]
 

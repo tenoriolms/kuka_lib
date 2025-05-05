@@ -6,7 +6,7 @@ from .. import utils
 
 @utils.__input_type_validation
 def import_pkl(
-    path='default',
+    path,
 
     _input_type_dict = {
             'path': str,
@@ -18,8 +18,6 @@ def import_pkl(
   This function returns a an variable after define it according to a pickle file in "path".
   "path" NEEDS contain the name of the file.
   '''
-  
-  if path == 'default': path = os.getcwd()
 
   with open( path, 'rb') as f:
     variable = pickle.load(f)
@@ -45,7 +43,9 @@ def export_pkl(
 
   time = datetime.datetime.now()
 
-  if path == 'default': path = f'{os.getcwd()}/var_{time.year}_{time.month}_{time.day}_{time.hour}h{time.minute}min.pkl'
+  if path == 'default':
+        filename = f"var_{time.strftime('%Y_%m_%d_%Hh%Mmin_%S_%f')}.pkl"
+        path = os.path.join(os.getcwd(), filename)
 
   with open( path, 'wb' ) as f:
     pickle.dump( variable, f)

@@ -1,106 +1,7 @@
-import sklearn.metrics
 import pandas as pd
 import numpy as np
 
 from .. import utils
-
-
-def rmse(v_real,v_pred):
-  return np.sqrt(sklearn.metrics.mean_squared_error(v_real,v_pred)) #leia sobre sklearn.metrics.mean_squared_error
-def r2(v_real,v_pred):
-  return sklearn.metrics.r2_score(v_real,v_pred) #leia sobre sklearn.metrics.r2_score
-def mape(v_real,v_pred):
-  return sklearn.metrics.mean_absolute_percentage_error(v_real,v_pred) #https://scikit-learn.org/stable/modules/model_evaluation.html#mean-absolute-percentage-error
-def c_coeff(v_real = 'class numpy.ndarray',
-            v_pred = 'class numpy.ndarray'
-            ): #https://www.sciencedirect.com/science/article/abs/pii/S0376738817311572?via%3Dihub
-  '''
-  Coeficiente proposto por Wessling et al (1997) (https://doi.org/10.1016/0376-7388(93)E0168-J)
-
-  The neural network works predictively if C is smaller than 1. For C=l, the
-  predicted permeability for an unknown polymer would be  equal to the average
-  permeability of all polymers presented in the set (which is, in fact, useless).
-
-  '''
-  import numpy as np
-  v_real = v_real.ravel()
-  v_pred = v_pred.ravel()
-  denominador = sum(abs(v_real.mean() - v_real))
-  if denominador!=0:
-    return sum(abs(v_pred-v_real))/denominador
-  else:
-    return np.nan
-  
-
-@utils.__input_type_validation
-def display_score(
-    m,
-    x_train,
-    x_test,
-    y_train,
-    y_test,
-    delog_y=False,
-    base=10,
-    untransform_y = 'Zscore or normalize',
-    dict_params_transform = 'dicionario parametros',
-    
-    _input_type_dict = {
-      'm': object,
-      'x_train': np.ndarray,
-      'x_test': np.ndarray,
-      'y_train': np.ndarray,
-      'y_test': np.ndarray,
-      'delog_y': bool,
-      'base': (int, float),
-      'untransform_y': str,
-      'dict_params_transform': dict
-    }
-    
-    ) -> pd.DataFrame:
-  '''
-  função para avaliar RMSE, R2 e OOB_score
-  
-  Exemplo de dict_params_transform para Zscore:
-  dict_params_transform = {'mean':'mean_value_for_target_variable', 'std':'std_value_for_target_variable'}
-  Exemplo de dict_params_transform para normalize:
-  IMPLEMENTAR AINDA
-  '''
-  y_train_pred = m.predict(x_train)
-  y_test_pred = m.predict(x_test)
-
-
-  if (untransform_y!='Zscore or normalize'):
-    if (untransform_y=='Zscore'):
-      y_train_pred = y_train_pred*dict_params_transform['std'] + dict_params_transform['mean']
-      y_test_pred = y_test_pred*dict_params_transform['std'] + dict_params_transform['mean']
-      y_train = y_train*dict_params_transform['std'] + dict_params_transform['mean']
-      y_test = y_test*dict_params_transform['std'] + dict_params_transform['mean']
-  if (delog_y==True):
-    y_train_pred = np.power(base, y_train_pred)
-    y_test_pred = np.power(base, y_test_pred)
-    y_train = np.power(base,y_train)
-    y_test = np.power(base,y_test)
-
-  res = [ [rmse( y_train,y_train_pred ), r2( y_train,y_train_pred ),
-           mape( y_train,y_train_pred ), c_coeff( y_train,y_train_pred )],
-          [rmse( y_test,y_test_pred ), r2( y_test,y_test_pred ),
-           mape( y_test,y_test_pred ), c_coeff( y_test,y_test_pred )] ]
-           #a função display score irá retornar uma tabela
-
-  score = pd.DataFrame(res, columns=['RMSE','R2','MAPE','C_coeff'], index = ['Treino','Teste'])
-
-  if hasattr(m, 'oob_score_'): #https://www.programiz.com/python-programming/methods/built-in/hasattr
-
-    if (delog_y==False):
-      score.loc['OOB'] = [rmse(y_train, m.oob_prediction_), m.oob_score_,
-                          mape(y_train, m.oob_prediction_), c_coeff(y_train,m.oob_prediction_)]
-    else:
-      y_train_pred = np.power(base, m.oob_prediction_)
-      score.loc['OOB'] = [rmse(y_train, y_train_pred), m.oob_score_,
-                          mape(y_train, y_train_pred), c_coeff(y_train,y_train_pred)]
-
-  return score
-
 
 
 @utils.__input_type_validation
@@ -120,9 +21,9 @@ def predictions_separate_by_a_variable(
 
     _input_type_dict = {
         'model': object,
-        'x_train': np.ndarray,
-        'x_test': np.ndarray,
-        'y_test': np.ndarray,
+        'x_train': pd.DataFrame,
+        'x_test': pd.DataFrame,
+        'y_test': pd.DataFrame,
         'variable_in_original_databank': str,
         'original_databank_train': pd.DataFrame,
         'original_databank_test': pd.DataFrame,
@@ -130,7 +31,7 @@ def predictions_separate_by_a_variable(
         'delog_y': bool,
         'base': (int, float),
         'untransform_y': str,
-        'dict_params_transform': dict,
+        'dict_params_transform': (dict, str),
     }
     
     ) -> pd.DataFrame:
