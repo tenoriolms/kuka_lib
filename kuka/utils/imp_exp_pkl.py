@@ -4,49 +4,54 @@ import datetime
 
 from .. import utils
 
-@utils.__input_type_validation
+_input_type_dict1 = {
+						'path': (str, None),
+						}
+
+@utils._input_function_validation(_input_type_dict1)
 def import_pkl(
-    path,
+		path,
 
-    _input_type_dict = {
-            'path': str,
-            }
-            
-    ) -> object:
-  
-  '''
-  This function returns a an variable after define it according to a pickle file in "path".
-  "path" NEEDS contain the name of the file.
-  '''
+		) -> object:
+	
+	'''
+	This function returns a an variable after define it according to a pickle file in "path".
+	"path" NEEDS contain the name of the file.
+	'''
 
-  with open( path, 'rb') as f:
-    variable = pickle.load(f)
-    print('Imported variable:',type(variable))
+	with open( path, 'rb') as f:
+		variable = pickle.load(f)
+		print('Imported variable:',type(variable))
 
-  return variable
+	return variable
 
-@utils.__input_type_validation
+
+
+
+
+
+_input_type_dict2 = {
+		'variable': (object, None),
+		'path': (str, None),
+		}
+
+@utils._input_function_validation(_input_type_dict2)
 def export_pkl(
-  variable,
-  path = 'default', #path for store the variable
-  
-  _input_type_dict = {
-    'variable': object,
-    'path': str,
-    },
-    
-    ) -> None:
-  '''
-  This function exports a variable of python as pickle file to the "path".
-  "path" NEEDS contain the name of the file.
-  '''
+	variable,
+	path = 'default', #path for store the variable
 
-  time = datetime.datetime.now()
+		) -> None:
+	'''
+	This function exports a variable of python as pickle file to the "path".
+	"path" NEEDS contain the name of the file.
+	'''
 
-  if path == 'default':
-        filename = f"var_{time.strftime('%Y_%m_%d_%Hh%Mmin_%S_%f')}.pkl"
-        path = os.path.join(os.getcwd(), filename)
+	time = datetime.datetime.now()
 
-  with open( path, 'wb' ) as f:
-    pickle.dump( variable, f)
-    print('Exported variable:',type(variable))
+	if path == 'default':
+				filename = f"var_{time.strftime('%Y_%m_%d_%Hh%Mmin_%S_%f')}.pkl"
+				path = os.path.join(os.getcwd(), filename)
+
+	with open( path, 'wb' ) as f:
+		pickle.dump( variable, f)
+		print('Exported variable:',type(variable))

@@ -1,15 +1,15 @@
 from .. import utils
 
-@utils.__input_type_validation
+_input_type_dict = {
+            'val': (object, None),
+            'my_dict': (dict, None),
+            'default': (object, None),
+            }
+
+@utils._input_function_validation(_input_type_dict)
 def get_key(
         val, my_dict,
-        default=None,
-
-        _input_type_dict = {
-            'val': object,
-            'my_dict': dict,
-            'default': object,
-            }
+        default=None,        
         ) -> list: #dict = key : value
     
     '''

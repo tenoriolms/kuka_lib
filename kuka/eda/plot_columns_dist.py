@@ -63,19 +63,22 @@ def plot_columns_dist(
 
 	
 	'''
-
+	df = df.copy()
 	# 1 - recognize the numeric columns
-	float_df_columns = []
-	object_df_columns = []
+	numeric_df_columns = []
+	datetime_df_columns = []
 	for i in df.columns:
-		try:
-			df[i] = df[i].astype(float)
-		except ValueError:
-			df[i] = df[i].astype(object)
-			object_df_columns += [i] ###############
+		if df[i].dtype == 'datetime64[ns]':
+			datetime_df_columns += [i]
 		else:
-			float_df_columns += [i]
-
+			try:
+				df[i] = pd.to_numeric(df[i])
+			except ValueError:
+				pass
+			else:
+				numeric_df_columns += [i]
+		
+		
 	nrows = math.ceil(len(df.columns)/ncols)
 	fig, ax = plt.subplots( 
 		ncols = ncols, 
@@ -85,39 +88,54 @@ def plot_columns_dist(
 	
 	i, j = (0, 0) # row and col
 	for col in df.columns:
-
 		if (j==ncols): 
 			i += 1
 			j = 0
 
 		axis = ax[i][j]
 
-		if col in float_df_columns:
-			axis.hist(df[col])
+		if col in numeric_df_columns+datetime_df_columns:
+			axis.hist(df[col].dropna())
 			axis.set_xlabel('Values')
 			axis.set_ylabel('Frequency')
+
+			if (col in datetime_df_columns) and (len(axis.get_xticklabels())<20):
+				# Dealing with large labels
+				_adjust_obj_to_ref(
+					fig,
+					axis.get_xticklabels(),
+					[axis],
+					'w',
+					steps = ['decrease_fontsize']*2 + ['try_rotate' ,'remove_label'],
+					threshold=0.8,
+					tick_ax=axis,
+					)
 		else:
+			df_filtered = df[col].dropna()
 			axis.bar(
-				df[col].value_counts().index,
-				df[col].value_counts().values,
+				df_filtered.value_counts().index,
+				df_filtered.value_counts().values,
 			)
 			axis.set_ylabel('Frequency')
-			
-			# Dealing with large labels
-			_adjust_obj_to_ref(
-				fig,
-				axis.get_xticklabels(),
-				[axis],
-				'w',
-				steps = ['decrease_fontsize']*3 + ['reset_fontsize', 'abbreviate_or_remove_tick_labels'],
-				threshold=0.8,
-				tick_ax=axis,
-				)
+
+			if len(axis.get_xticklabels())<20:
+				# Dealing with large labels
+				_adjust_obj_to_ref(
+					fig,
+					axis.get_xticklabels(),
+					[axis],
+					'w',
+					steps = ['decrease_fontsize']*3 + ['try_rotate' ,'remove_label'],
+					threshold=0.8,
+					tick_ax=axis,
+					)
+			else:
+				axis.set_xticklabels('')
 
 		axis.set_title(col)
 		j += 1
 	# clear the remaining axis
-	for pos in np.arange(len(df.columns)%ncols, ncols):
+	for pos in np.arange(j, ncols):
 		axis = ax[i][pos]
 		axis.remove()
 
