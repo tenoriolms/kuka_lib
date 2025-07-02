@@ -1,0 +1,976 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação da sua biblioteca">
+      
+      
+        <meta name="author" content="Seu Nome">
+      
+      
+        <link rel="canonical" href="https://github.com/tenoriolms/kuka_lib/api_reference/0_utils/">
+      
+      
+        <link rel="prev" href="../4_opt/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>_Utilities - kuka</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_input_function_validation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="kuka" class="md-header__button md-logo" aria-label="kuka" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            kuka
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              _Utilities
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="kuka" class="md-nav__button md-logo" aria-label="kuka" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    kuka
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    API reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            API reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1_eda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EDA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Preprocessing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Evaluation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4_opt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Optimization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Interpretation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    _Utilities
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    _Utilities
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_input_function_validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      _input_function_validation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_is_valid_path" class="md-nav__link">
+    <span class="md-ellipsis">
+      _is_valid_path
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      plot
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="plot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_adjust_obj_to_ref" class="md-nav__link">
+    <span class="md-ellipsis">
+      _adjust_obj_to_ref
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_plot_bboxes" class="md-nav__link">
+    <span class="md-ellipsis">
+      _plot_bboxes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_plot_text" class="md-nav__link">
+    <span class="md-ellipsis">
+      _plot_text
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_input_function_validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      _input_function_validation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_is_valid_path" class="md-nav__link">
+    <span class="md-ellipsis">
+      _is_valid_path
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      plot
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="plot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_adjust_obj_to_ref" class="md-nav__link">
+    <span class="md-ellipsis">
+      _adjust_obj_to_ref
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_plot_bboxes" class="md-nav__link">
+    <span class="md-ellipsis">
+      _plot_bboxes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_plot_text" class="md-nav__link">
+    <span class="md-ellipsis">
+      _plot_text
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1>Utilities for coding</h1>
+
+<hr />
+<h2 id="_input_function_validation">_input_function_validation</h2>
+<pre><code>decorator utils._input_function_validation()
+</code></pre>
+<p>Decorator with input arguments.</p>
+<p>A decorator used to validate function inputs using a user-defined validation protocol. It ensures input types and values match the expected constraints prior to executing the target function.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>_input_val_dict</code>: dict</li>
+</ul>
+<p>Dictionary that will carry the entire validation protocol and must be like:</p>
+<pre><code class="language-python">_input_type_dict = {
+    'variable_name1': ( var_type-&gt;(str, list, tuple), validation_mode-&gt;str, validation_parameters ),
+    'variable_name2': ( var_type-&gt;(str, list, tuple), validation_mode-&gt;str, validation_parameters ),
+    ...
+    }
+</code></pre>
+<p>The <code>variable_name</code> key must be a string and its value must be a list or tuple. If theres no type constraint for a variable, use <code>object</code> as the type.</p>
+<p>The variable <code>validation_mode</code> and respective <code>validation_parameters</code> can have the values of:</p>
+<ul>
+<li><code>None or 'none'</code>: There is no restriction on the parameter value.<ul>
+<li><code>validation_parameters</code> = Anything. Will not be read. Can be occulted.</li>
+</ul>
+</li>
+<li><code>'pattern'</code>: The parameter value must be exactly one of a list of values.</li>
+<li><code>validation_parameters</code> = A list/tuple of exact valid values. Ex: <code>['a', 'b', 'c'] or [1, 3, 5, 6] or ['a', 3, {'a':1}]</code>.</li>
+<li><code>'range'</code>: The parameter value has minimum and maximum values. It only works with numeric parameters.<ul>
+<li><code>validation_parameters</code> = A list/tuple with the format <code>[min, max]</code>. <code>np.inf</code> can be used.</li>
+</ul>
+</li>
+<li><code>'length'</code>: The parameter is a list, tuple or string with a given length.<ul>
+<li><code>validation_parameters</code> = Int. Length of the tuple/list. The <code>len()</code> function is applied.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>none</code></li>
+</ul>
+<p><strong>Raises:</strong></p>
+<ul>
+<li><code>ValueError</code>: If <code>_input_val_dict</code> is malformed or contains invalid configuration.</li>
+<li><code>AssertionError</code>: If an input value does not match the expected type or fails the validation rules.</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<pre><code class="language-python">&gt; import numpy as np
+&gt; from kuka.utils import _input_function_validation
+&gt;
+&gt; _input_val_dict = {
+&gt;     'a': (str, None)
+&gt;     'b': ((list, tuple), 'length', 4)
+&gt;     'c': ((int, float), 'range', [0, 10])
+&gt;     'd': ((int, float), 'range', [5, np.inf])
+&gt;     'e': (str, 'pattern', ['opt1', 'opt2', 'opt3'])
+&gt;     }
+&gt; 
+&gt; @_input_function_validation(_input_val_dict)
+&gt; def function(a, b, c=1, d=42, e='opt1'):
+&gt;     ...
+&gt;     return ...
+</code></pre>
+<hr />
+<h2 id="_is_valid_path">_is_valid_path</h2>
+<pre><code>function utils._is_valid_path()
+</code></pre>
+<p>Checks whether a given string is a valid path to an EXISTING file or directory..</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li>
+<p><code>path_str</code>: type, valid values</p>
+<p>Parameter description.</p>
+</li>
+</ul>
+<p><strong>Default Parameters:</strong></p>
+<ul>
+<li>
+<p><code>type_path = 'file or dir'</code>: str, "file" or "dir"</p>
+<p>Parameter description.</p>
+</li>
+<li>
+<p><code>check_only_syntax = False</code>: type, valid values</p>
+<p>Parameter description.</p>
+</li>
+</ul>
+<p><strong>Returns:</strong>
+* <code>True or False</code>: bool
+    <code>True</code> if <code>path_str</code> is a valid and existing path of the specified type, <code>False</code> otherwise.</p>
+<p><strong>Raises:</strong></p>
+<ul>
+<li>
+<p><code>AssertionError</code>:</p>
+<p>If <code>type_path</code> string is neither a "file" nor a "dir".</p>
+</li>
+</ul>
+<p><strong>Notes:</strong></p>
+<p>This function validates whether <code>path_str</code> is a properly formatted string that can represent a file or directory path on the current operating system. It checks:
+- That it is a non-empty string
+- That it does not contain invalid characters (especially on Windows)
+- That backslashes are used correctly (e.g., allows network paths like \\server)
+- That it points to an existing file or directory, depending on <code>type_path</code></p>
+<p><strong>Examples:</strong></p>
+<pre><code class="language-python">&gt; __is_valid_path(&quot;data/model.pkl&quot;, type_path=&quot;file&quot;)
+&gt; __is_valid_path(&quot;data/&quot;, type_path=&quot;dir&quot;)
+</code></pre>
+<hr />
+<h2 id="plot">plot</h2>
+<h3 id="_adjust_obj_to_ref">_adjust_obj_to_ref</h3>
+<pre><code>function utils.plot._adjust_obj_to_ref()
+</code></pre>
+<p>Automatically adjusts matplotlib text-like objects to avoid overlap or excessive size compared to reference elements. Applies a sequence of correction steps like rotation, font size scaling, abbreviation, repositioning, or text wrapping to make labels or texts fit within the visual bounds of a figure.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p><code>fig</code> (<code>matplotlib.figure.Figure</code>):<br />
+    The figure containing the objects to be adjusted. Used to calculate bounding boxes.</p>
+</li>
+<li>
+<p><code>obj_list</code> (<code>list</code>):<br />
+    List of matplotlib objects to be adjusted. Objects must implement <code>.get_window_extent()</code>.</p>
+</li>
+</ul>
+<pre><code>    Ex: 
+    list(text_list) = [Text(), Text(), Text(), ...]
+    list(ax.texts), ax.get_xticklabels()
+</code></pre>
+<ul>
+<li>
+<p><code>ref_list</code> (<code>list</code>):<br />
+    List of reference elements used to compare dimensions or check overlap. Ex.: <code>[ax]</code>.</p>
+</li>
+<li>
+<p><code>dimension</code> (<code>str</code>):<br />
+    Direction of dimensional constraint: <code>'w'</code> for width or <code>'h'</code> for height.</p>
+</li>
+<li>
+<p><code>steps</code> (<code>list</code> of <code>str</code>):<br />
+    Sequence of adjustment strategies to attempt, in order. Available options:</p>
+<ul>
+<li><code>'try_rotate'</code>: Rotate text incrementally. Has "get_rotation()" and "set_rotation()" methods;</li>
+<li><code>'decrease_fontsize'</code>: Scale down font size. Has "get_fontsize()" and "set_fontsize()" methods;</li>
+<li><code>'reset_fontsize'</code>: Restore original font size. Has "set_fontsize()" method;</li>
+<li><code>'remove_label'</code>: Remove all labels/texts. Has "set_text()" method;</li>
+<li><code>'abbreviate_or_remove_tick_labels'</code>: Replace tick labels with abbreviated symbols. Is a "ax.get_xticklabels()" or "ax.get_yticklabels()" matplotlib object. works only if the ticklabels obey the common position for their respective axes. (x, 0) for the x_axis and (0, y) for the y_axis;</li>
+<li><code>'abbreviate_or_remove'</code>: Replace text content with abbreviations or remove them. Has ".get_text()", "set_text()" and ".get_position()" method;</li>
+<li><code>'move_until_no_overlaps'</code>: Move objects until no overlap is detected. Has ".set_position()" method;</li>
+<li><code>'wrap_until_fit'</code>: Wrap long text into multiple lines. Has ".get_text()" and ".set_text()" methods.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Default Parameters</strong></p>
+<ul>
+<li>
+<p><code>threshold = 0.8</code> (<code>float</code>):<br />
+    Fraction of total space occupied by <code>obj_list</code> relative to <code>ref_list</code> before adjustments are applied.</p>
+</li>
+<li>
+<p><code>rotate_max = 90</code> (<code>float</code>):<br />
+    Maximum rotation angle (degrees) for <code>'try_rotate'</code> step.</p>
+</li>
+<li>
+<p><code>rotate_rate = 5</code> (<code>float</code>):<br />
+    Incremental rotation applied per attempt in <code>'try_rotate'</code>.</p>
+</li>
+<li>
+<p><code>fontsize_max = 7.</code> (<code>float</code>):<br />
+    Threshold under which font size will not be decreased.</p>
+</li>
+<li>
+<p><code>fontsize_rate = 0.9</code> (<code>float</code>):<br />
+    Multiplicative factor to reduce font size during <code>'decrease_fontsize'</code>.</p>
+</li>
+<li>
+<p><code>abbreviate_list = ['letters']</code> (<code>list</code> or <code>tuple</code>):<br />
+    Custom abbreviations to use in abbreviation steps. Defaults to letter-based abbreviations.</p>
+</li>
+<li>
+<p><code>tick_ax = None</code> (<code>matplotlib.axes.Axes</code> or <code>None</code>):<br />
+    Axis object required for <code>'abbreviate_or_remove_tick_labels'</code> step.</p>
+</li>
+<li>
+<p><code>move_rate = (None, None)</code> (<code>tuple</code>):<br />
+    (x, y) amount to translate objects during <code>'move_until_no_overlaps'</code>.</p>
+</li>
+<li>
+<p><code>wrap_rate = 2</code> (<code>int</code>):<br />
+    Width decrement step used in <code>'wrap_until_fit'</code>.</p>
+</li>
+<li>
+<p><code>wrap_maxlines = 3</code> (<code>int</code>):<br />
+    Maximum number of lines allowed in wrapped text.</p>
+</li>
+<li>
+<p><code>_plot_ref = False</code> (<code>bool</code>):<br />
+    Whether to plot reference bounding boxes for debugging.</p>
+</li>
+<li>
+<p><code>_plot_obj = False</code> (<code>bool</code>):<br />
+    Whether to plot object bounding boxes for debugging.</p>
+</li>
+</ul>
+<p><strong>Returns</strong>
+- <code>None</code>:<br />
+  The function operates in-place, modifying the input objects directly.</p>
+<p><strong>Examples</strong></p>
+<pre><code class="language-python">fig, ax = plt.subplots()
+bars = ax.bar(['Very very long label A', 'Extremely long label B'], [3, 5])
+fig.canvas.draw()
+ticklabels = ax.get_xticklabels()
+</code></pre>
+<pre><code class="language-python"># Rotate and shrink labels to fit
+_adjust_obj_to_ref(fig, ticklabels, bars, dimension='w',
+                   steps=['try_rotate', 'decrease_fontsize'], threshold=0.9)
+</code></pre>
+<pre><code class="language-python"># Abbreviate labels if needed
+_adjust_obj_to_ref(fig, ticklabels, bars, dimension='w',
+                   steps=['abbreviate_or_remove_tick_labels'],
+                   abbreviate_list=['A', 'B'], tick_ax=ax)
+</code></pre>
+<pre><code class="language-python"># Wrap long text into multiple lines
+texts = [ax.text(0.5, 0.95, 'A very long title', ha='center', transform=ax.transAxes)]
+_adjust_obj_to_ref(fig, texts, [ax], dimension='w',
+                   steps=['wrap_until_fit'], wrap_rate=3, wrap_maxlines=3)
+
+</code></pre>
+<hr />
+<h3 id="_plot_bboxes">_plot_bboxes</h3>
+<pre><code class="language-python">function utils.plot._plot_bboxes()
+</code></pre>
+<p>Plots bounding boxes on a matplotlib figure using figure-relative coordinates (0–1).</p>
+<p>This function helps visualize and debug layout issues by drawing rectangular outlines corresponding to graphical elements such as tick labels, texts, or axes objects. It converts pixel-based bounding boxes to figure fraction coordinates and overlays them on the figure.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li>
+<p><code>bbox_list</code>: list or tuple of matplotlib.transforms.Bbox, valid values: —<br />
+  A list of bounding boxes to be drawn, given in pixel coordinates (usually from <code>.get_window_extent(renderer)</code>).</p>
+</li>
+<li>
+<p><code>fig</code>: matplotlib.figure.Figure, valid values: —<br />
+  The target figure on which bounding boxes will be drawn.</p>
+</li>
+</ul>
+<p><strong>Default Parameters:</strong></p>
+<ul>
+<li>
+<p><code>color = 'red'</code>: str, valid values: —<br />
+  Color of the bounding box borders.</p>
+</li>
+<li>
+<p><code>linewidth = 1</code>: int or float, valid values: range [0, ∞)<br />
+  Thickness of the rectangle edges.</p>
+</li>
+<li>
+<p><code>linestyle = '-'</code>: str 
+  Style of the rectangle edges (e.g., '-', '--', ':', '-.').</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>rect_list</code>: list of matplotlib.patches.Rectangle<br />
+  List of the rectangle objects added to the figure.</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<pre><code class="language-python">    fig, ax = plt.subplots()
+    bars = ax.bar(['A', 'B', 'C'], [5, 7, 4])
+    fig.canvas.draw()
+    renderer = fig.canvas.get_renderer()
+</code></pre>
+<pre><code class="language-python">    bbox_list = [bar.get_window_extent(renderer) for bar in bars]
+    _plot_bboxes(bbox_list, fig, color='green', linewidth=2, linestyle='--')
+</code></pre>
+<pre><code class="language-python">    # Also works with tick labels or text objects:
+    tick_bboxes = [label.get_window_extent(renderer) for label in ax.get_xticklabels()]
+    _plot_bboxes(tick_bboxes, fig, color='blue')
+</code></pre>
+<hr />
+<h3 id="_plot_text">_plot_text</h3>
+<pre><code class="language-python">function utils.plot._plot_text()
+</code></pre>
+<p>Plot a text in matplotlib. Useful to show some simple LaTeX codes.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>text</code>: str
+    Text string to be plotted.</li>
+</ul>
+<p><strong>Default Parameters:</strong></p>
+<ul>
+<li><code>_fontsize = 12</code>: float or int, valid values: range [0, ∞)
+    Font size for the plotted text.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li>tuple of (<code>matplotlib.figure.Figure</code>, <code>matplotlib.axes.Axes</code>)<br />
+    The figure and axes objects containing the plotted text.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-python">fig, ax = _plot_text(&quot;Hello World&quot;, _fontsize=14)
+fig.show()
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+    
+  </body>
+</html>
