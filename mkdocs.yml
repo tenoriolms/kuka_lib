@@ -1,0 +1,24 @@
+
+site_name: kuka
+site_url: https://github.com/tenoriolms/kuka_lib
+site_description: Documentação da sua biblioteca
+site_author: Seu Nome
+
+theme:
+  name: material # readthedocs
+  # logo: assets/img/logo.png
+  # favicon: assets/img/favicon.ico
+  palette:
+    - scheme: default
+      primary: green
+      accent: indigo
+
+nav:
+  - About: index.md
+  - API reference:
+    - EDA: api_reference/1_eda.md
+    - Preprocessing: api_reference/
+    - Evaluation: api_reference/
+    - Optimization: api_reference/4_opt.md
+    - Interpretation: api_reference/
+    - _Utilities: api_reference/0_utils.md

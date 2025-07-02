@@ -2,7 +2,15 @@ from pathlib import Path
 import re
 import os
 
+from . import _input_function_validation
 
+_input_type_dict = {
+    'path_str': ( str, None ),
+    'type_path': ( str, 'pattern', ['file', 'dir'] ),
+    'check_only_syntax': ( bool, None ),
+    }
+
+@_input_function_validation(_input_type_dict)
 def _is_valid_path(path_str, type_path = 'file or dir', check_only_syntax=False):
     """
     Checks whether a given string is a valid path to an EXISTING file or directory.
@@ -23,9 +31,6 @@ def _is_valid_path(path_str, type_path = 'file or dir', check_only_syntax=False)
     Returns:
         bool: `True` if `path_str` is a valid and existing path of the specified type,
         `False` otherwise.
-
-    Raises:
-        AssertionError: If `type_path` is not "file" or "dir".
 
     Examples:
         __is_valid_path("data/model.pkl", type_path="file")

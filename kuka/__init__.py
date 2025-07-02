@@ -1,16 +1,17 @@
-from . import info
-
-from . import plot
-from . import misc
-from . import preprocessing
-from . import score
-from . import optimization
+from . import _info
+from . import eda
+from . import eval
+from . import interp
+from . import opt
+from . import preprocess
+from . import utils
 
 __all__ = [
-    'info',
-    'plot',
-    'misc',
-    'preprocessing',
-    'score',
-    'optimization'
+    '_info',
+    'eda',
+    'eval',
+    'interp',
+    'opt',
+    'preprocess',
+    'utils',
 ]

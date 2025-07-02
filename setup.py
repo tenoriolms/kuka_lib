@@ -2,13 +2,13 @@ from setuptools import setup, find_packages
 
 setup(
     name="kuka",
-    version="0.2.2",
+    version="0.3.0",
     author="tenoriolms",
     description="Personal library for EDA, data modeling, and ML modeling analysis/interpretation",
-    long_description='',#open("README.md").read(),  # Descrição longa
-    long_description_content_type="text/markdown",  # Para suportar Markdown
-    url="https://github.com/tenoriolms/kuka_lib", # Repositório do projeto
-    packages=find_packages(),  # Encontra automaticamente subpacotes
+    long_description='',#open("README.md").read(),
+    long_description_content_type="text/markdown",
+    url="https://github.com/tenoriolms/kuka_lib",
+    packages=find_packages(),
     install_requires=[
         'numpy', 
         'pandas', 
@@ -20,6 +20,7 @@ setup(
         'pathlib',
         ],  
     classifiers=[
+        'Development Status :: 3 - Alpha',
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",

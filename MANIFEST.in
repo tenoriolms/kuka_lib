@@ -1,2 +1,2 @@
 include textos/*.txt
-recursive-include kuka/info/texts *.txt
+recursive-include kuka/_info/texts *.txt
