@@ -1,0 +1,1010 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação da sua biblioteca">
+      
+      
+        <meta name="author" content="Seu Nome">
+      
+      
+        <link rel="canonical" href="https://github.com/tenoriolms/kuka_lib/v2.0/api_reference/4_opt/">
+      
+      
+        <link rel="prev" href="../3_eval/">
+      
+      
+        <link rel="next" href="../5_interp/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Optimization - kuka</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#optuna_study" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="kuka" class="md-header__button md-logo" aria-label="kuka" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            kuka
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Optimization
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="kuka" class="md-nav__button md-logo" aria-label="kuka" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    kuka
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    API reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            API reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1_eda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EDA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_preprocessing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Preprocessing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_eval/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Evaluation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Optimization
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Optimization
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#optuna_study" class="md-nav__link">
+    <span class="md-ellipsis">
+      optuna_study
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="optuna_study">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#method-describe_study" class="md-nav__link">
+    <span class="md-ellipsis">
+      method: describe_study()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-set_objective_conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      method: set_objective_conditions()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-optimize" class="md-nav__link">
+    <span class="md-ellipsis">
+      method: optimize()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5_interp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Interpretation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0_utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    _Utilities
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#optuna_study" class="md-nav__link">
+    <span class="md-ellipsis">
+      optuna_study
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="optuna_study">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#method-describe_study" class="md-nav__link">
+    <span class="md-ellipsis">
+      method: describe_study()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-set_objective_conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      method: set_objective_conditions()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-optimize" class="md-nav__link">
+    <span class="md-ellipsis">
+      method: optimize()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1> Optimization </h1>
+
+<hr />
+<h2 id="optuna_study">optuna_study</h2>
+<pre><code class="language-python">class opt.optuna_study()
+</code></pre>
+<p>An encapsulated interface for creating, loading, configuring, and running<br />
+hyperparameter optimization with Optuna, including support for dynamic range adjustment,<br />
+scoring strategies, and exportable checkpoints.</p>
+<p>This class simplifies integration of Optuna with machine learning models by allowing:<br />
+- Direct instantiation of new or existing studies.<br />
+- Flexible definition of hyperparameter search spaces.<br />
+- Objective functions with default scoring or cross-validation scoring.<br />
+- Multiple stopping criteria for early stopping or range expansion.<br />
+- Automatic saving of checkpoints as <code>.pkl</code> files.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li>
+<p><code>model</code>: <code>object</code>
+    A scikit-learn-like estimator class (e.g., <code>RandomForestRegressor</code>) that will be optimized.</p>
+</li>
+<li>
+<p><code>x_train</code>: <code>pd.DataFrame</code>
+    The training feature dataset.</p>
+</li>
+<li>
+<p><code>y_train</code>: <code>pd.DataFrame</code>
+    The training target dataset.</p>
+</li>
+</ul>
+<p><strong>Default Parameters:</strong></p>
+<ul>
+<li>
+<p><code>study = 'new'</code>: <code>str</code> or <code>optuna.study.Study</code> or <code>optuna_study</code>
+    Defines how to initialize the Optuna study. Can be:</p>
+<ul>
+<li><code>'new'</code>: create a new study;</li>
+<li><code>'str</code>: A string path to a <code>.pkl</code> file containing a saved study object;</li>
+<li><code>optuna.study.Study</code>: An existing Optuna <code>Study</code> object.</li>
+</ul>
+</li>
+<li>
+<p><code>study_name = None</code>: <code>str</code>  <br />
+    Name for the study if creating a new one.</p>
+</li>
+<li>
+<p><code>direction = None</code>: <code>str</code>  <br />
+    Direction of optimization: either <code>'minimize'</code> or <code>'maximize'</code> (used if creating a new study).</p>
+</li>
+</ul>
+<p><strong>Attributes:</strong></p>
+<ul>
+<li>
+<p><code>model</code>: <code>type</code>
+    The machine learning estimator class to be tuned, e.g., <code>RandomForestRegressor</code>, <code>XGBRegressor</code>, or any scikit-learn-like model class.</p>
+</li>
+<li>
+<p><code>x_train</code>: <code>pd.DataFrame</code><br />
+    The training feature dataset; a pandas DataFrame containing the input features for model training.</p>
+</li>
+<li>
+<p><code>y_train</code>: <code>pd.DataFrame</code> or <code>pd.Series</code> 
+     The training target dataset; a pandas DataFrame or Series containing the target variable(s).</p>
+</li>
+<li>
+<p><code>study</code>; <code>optuna.study.Study</code>
+    The <code>optuna.study.Study</code> object that manages and stores optimization trials.</p>
+</li>
+<li>
+<p><code>study_name</code>: <code>str</code> or <code>None</code>
+    Name identifier for the Optuna study. Used when creating a new study.</p>
+</li>
+<li>
+<p><code>direction</code>: <code>str</code>, valid values: <code>'minimize'</code> or <code>'maximize'</code><br />
+    Defines whether the optimization goal is to minimize or maximize the objective function.</p>
+</li>
+<li>
+<p><code>scorer</code>: <code>callable</code> or <code>dict</code><br />
+    The scoring function or a dictionary of scoring functions used to evaluate model performance during optimization.</p>
+</li>
+<li>
+<p><code>_objective_mode</code>: <code>str</code>, valid values: <code>'default'</code> or <code>'cv'</code><br />
+    Indicates the mode of the objective function evaluation: <code>'default'</code> for a single scorer on the training set or <code>'cv'</code> for cross-validation scoring.</p>
+</li>
+<li>
+<p><code>_fobj_mult</code>: <code>float</code> or <code>int</code><br />
+    A multiplier applied to the objective function score, typically used to scale the score for better numerical stability during optimization.</p>
+</li>
+<li>
+<p><code>_objective_mode_default</code>: <code>dict</code><br />
+    Configuration dictionary for the <code>'default'</code> mode containing keys such as <code>'scorer'</code> and <code>'scorer_locals'</code> with corresponding values.</p>
+</li>
+<li>
+<p><code>_objective_mode_cv</code>: <code>dict</code><br />
+    Configuration dictionary for the <code>'cv'</code> mode containing keys such as <code>'cv_scorers'</code>, <code>'cv_scorers_weight'</code>, <code>'cv'</code>, <code>'use_cv_train'</code>, and <code>'cv_train_weight'</code>.</p>
+</li>
+<li>
+<p><code>_hparams</code>: <code>dict</code><br />
+    Dictionary holding the hyperparameter search space and fixed model arguments, divided by types: categorical (<code>'cat'</code>), integer (<code>'int'</code>), float (<code>'float'</code>), and fixed model parameters (<code>'model'</code>).</p>
+</li>
+</ul>
+<p><strong>Methods:</strong></p>
+<ul>
+<li>
+<p><code>describe_study()</code>: type, valid values 
+    Prints a summary of the current study including its name, model, number of trials, best score, dataset shape, optimization direction, and whether cross-validation is used.</p>
+</li>
+<li>
+<p><code>set_objective_conditions(...)</code>: type, valid values 
+    Sets up the hyperparameter search space and the objective evaluation conditions, including scoring functions, mode (default or CV), and weights.</p>
+</li>
+<li>
+<p><code>_create_objective()</code>: type, valid values 
+    Builds the objective function that Optuna will optimize, based on the set conditions. It can be called after <code>set_objective_conditions(...)</code> is called to construct a function for other applications.</p>
+</li>
+<li>
+<p><code>optimize(...)</code>: type, valid values 
+    Runs the optimization process with flexible stopping criteria, supports checkpointing, and dynamic range adjustment of hyperparameters.</p>
+</li>
+</ul>
+<p><strong>Examples</strong></p>
+<pre><code class="language-python">from sklearn.ensemble import RandomForestRegressor
+opt_study = optuna_study(
+    model=RandomForestRegressor,
+    x_train=X,
+    y_train=y,
+    direction='minimize'
+)
+</code></pre>
+<p>After define study:</p>
+<pre><code class="language-python">opt_study.set_objective_conditions( ... )
+
+opt_study.optimize( ... )
+</code></pre>
+<hr />
+<h3 id="method-describe_study">method: <code>describe_study()</code></h3>
+<p>Prints a summary description of the current Optuna study, including the study name, model type, number of trials, best score found, dataset size, optimization direction, scoring function used, and whether cross-validation is enabled.</p>
+<hr />
+<h3 id="method-set_objective_conditions">method: <code>set_objective_conditions()</code></h3>
+<p>Configures the objective function to be used during optimization. Defines the hyperparameter search space and scoring strategy. Supports single scoring (<code>default</code> mode) and cross-validation scoring (<code>cv</code> mode) with multiple metrics and weighted aggregation.</p>
+<p>The hyperparameters must be provided as dictionaries with the format:</p>
+<pre><code class="language-python">{parameter_name: [suggest_args, suggest_kwargs]}
+</code></pre>
+<p>where <code>suggest_args</code> are positional arguments for Optuna’s suggest methods (e.g., ranges) and <code>suggest_kwargs</code> are optional keyword arguments (e.g., steps or logarithmic search).</p>
+<p><strong>Default Parameters:</strong></p>
+<ul>
+<li>
+<p><code>hparams_cat = None</code>: <code>dict</code>
+    Categorical hyperparameters to optimize. Format: <code>{param_name: [choices_list, {}]}</code>.</p>
+</li>
+<li>
+<p><code>hparams_int = None</code>: <code>dict</code>
+    Integer hyperparameters to optimize.
+    Format:</p>
+</li>
+</ul>
+<pre><code class="language-python">    {param_name: [[low, high], {suggest_kwargs}]}
+</code></pre>
+<ul>
+<li><code>hparams_float = None</code>: <code>dict</code>
+    Float hyperparameters to optimize.
+    Format:</li>
+</ul>
+<pre><code class="language-python">    {param_name: [[low, high], {suggest_kwargs}]}
+</code></pre>
+<ul>
+<li>
+<p><code>model_locals = None</code>: <code>dict</code>
+    Fixed model parameters (not optimized).</p>
+</li>
+<li>
+<p><code>mode = 'default'</code>: <code>str</code>
+    Objective evaluation mode:<br />
+        - <code>'default'</code>: Uses a single scorer function on the full training set.<br />
+        - <code>'cv'</code>: Uses multiple scorers combined with cross-validation.</p>
+</li>
+<li>
+<p><code>scorer = None</code>: <code>callable</code> or <code>str</code>
+    Scorer function or predefined scorer name (e.g., <code>'rmse'</code>, <code>'r2'</code>) for <code>'default'</code> mode.</p>
+</li>
+<li>
+<p><code>scorer_locals = {}</code>: <code>dict</code>
+    Keyword arguments passed to the scorer function.</p>
+</li>
+<li>
+<p><code>cv_scorers = None</code>: <code>str</code>, <code>callable</code>, or <code>list</code>
+    One or multiple scorers to use during cross-validation. Each can be a string name, a callable function <code>(y_true, y_pred)</code>, or a sklearn metrics object.</p>
+</li>
+<li>
+<p><code>cv_scorers_weight = None</code>: <code>float</code> or <code>list</code>
+    Weights for each CV scorer when aggregating results.</p>
+</li>
+<li>
+<p><code>cv = 5</code>: <code>int</code> 
+    Number of folds for cross-validation.</p>
+</li>
+<li>
+<p><code>use_cv_train = False</code>: <code>bool</code> 
+    If <code>True</code>, includes training scores in the CV aggregation.</p>
+</li>
+<li>
+<p><code>cv_train_weight = 0</code>: <code>float</code> 
+    Weight of training scores in aggregation (range 0–1).</p>
+</li>
+<li>
+<p><code>fobj_mult = 1000</code>: <code>float</code> 
+    Multiplier applied to the objective value to scale the score.</p>
+</li>
+</ul>
+<p><strong>Examples</strong></p>
+<pre><code class="language-python">opt_study.set_objective_conditions(
+    hparams_float={'alpha': [[0.001, 1], {'log': True}]},
+    model_locals={'random_state': 42},
+    scorer='r2',
+    mode='default'
+)
+
+opt_study.set_objective_conditions(
+    hparams_int={'max_depth': [[3, 10], {}]},
+    cv_scorers=['r2', 'rmse'],
+    cv_scorers_weight=[0.6, 0.4],
+    mode='cv'
+)
+</code></pre>
+<p>For SVR model:</p>
+<pre><code class="language-python">#hparams = { attribute_name : [ optuna_suggest_args, 
+#                               optuna_suggest_kargs ] }
+hparams_float = {
+    'C': ( [1e-3, 1e3], {'step':0.001} ),
+    'gamma': ( [1e-4, 1e2], {'step':0.0001} ),
+    'epsilon': ( [0.001, 1.0], {'step':0.001} ) 
+    }
+
+opt_study = optuna_study(SVR, 
+                     x_train, 
+                     y_train,
+                     study='new',
+                     study_name=f'SVR_with_cv',
+                     direction='maximize',
+                     )
+
+opt_study.set_objective_conditions(
+    hparams_float = hparams_float,
+    mode='cv',
+    cv_scorers='r2',
+    )
+</code></pre>
+<p>For RF model:</p>
+<pre><code class="language-python">#hparams = { attribute_name : [ optuna_suggest_args, 
+#                               optuna_suggest_kargs ] }
+hparams_cat = {'criterion': ['squared_error', 'absolute_error'] }
+hparams_int = {
+    'n_estimators': ( [50, 200], {'step':1} ),
+    'max_depth': ( [5, 15], {'step':1} ),
+    'min_samples_leaf': ( [1, 3], {'step':1} ),
+    'max_features': ( [1, x_train.shape[1]], {'step':1} )
+}
+hparams_float = { 'max_samples': ( [0.5, 1], {'step':0.01} ) }
+model_args = {'random_state': 42}
+
+opt_study = optuna_study(sklearn.ensemble.RandomForestRegressor, 
+                     x_train, 
+                     y_train,
+                     study='new',
+                     study_name=f'RF_with_cv',
+                     direction='minimize',
+                     )
+
+opt_study.set_objective_conditions(
+    hparams_cat = hparams_cat,
+    hparams_int = hparams_int,
+    hparams_float = hparams_float,
+    model_locals = model_args,
+    mode='cv',
+    cv_scorers='rmse',
+    cv_train_weight= 0,
+    )
+</code></pre>
+<hr />
+<h3 id="method-optimize">method: <code>optimize()</code></h3>
+<p>Executes the hyperparameter optimization process using the configured objective function. Supports various stopping criteria including fixed number of trials, score gradient convergence, and dynamic hyperparameter range expansion. Optionally exports checkpoints periodically as <code>.pkl</code> files.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>n_trials</code>: <code>int</code><br />
+    Number of trials to run per optimization iteration.</li>
+</ul>
+<p><strong>Default Parameters:</strong></p>
+<ul>
+<li>
+<p><code>stop_criterium = n_trials</code>: <code>str</code>
+    Criterion to stop optimization:<br />
+        - <code>'n_trials'</code>: Stop after specified number of trials.<br />
+        - <code>'best_score_gradient'</code>: Stop if score improvement falls below <code>score_gradient</code>.<br />
+        - <code>'flex_range'</code>: Dynamically expand hyperparameter ranges when best values hit boundaries.</p>
+</li>
+<li>
+<p><code>checkpoint  = None</code>: <code>int</code>
+    Number of trials per checkpoint export.</p>
+</li>
+<li>
+<p><code>checkpoint_path = None</code>: <code>str</code>
+    File or directory path to save checkpoint files.</p>
+</li>
+<li>
+<p><code>timeout = 10</code>: <code>int</code>
+    Timeout in seconds per trial.</p>
+</li>
+<li>
+<p><code>score_gradient = None</code>: <code>float</code>
+    Threshold of score improvement for <code>'best_score_gradient'</code> stopping.</p>
+</li>
+<li>
+<p><code>min_runs_score_gradient = 3</code>: <code>int</code>
+    Minimum optimization iterations before applying score gradient check.</p>
+</li>
+<li>
+<p><code>set_flex_protocol = None</code>: <code>dict</code>
+    Protocol defining how to expand hyperparameter search ranges for <code>'flex_range'</code> stopping. Must be of the format:</p>
+</li>
+</ul>
+<pre><code class="language-python">    set_flex_protocol = {
+    'param_name': (protocol_for_min_range, protocol_value) ,(protocol_for_max_range, protocol_value)
+    'param_name2': (protocol_for_min_range2, protocol_value2) ,(protocol_for_max_range2, protocol_value2)
+    ...
+    }
+</code></pre>
+<p>where <code>protocol_for_min_range</code> and <code>protocol_for_max_range</code> can be:</p>
+<ul>
+<li><code>'add'</code>: The <code>protocol_value</code> will adds (+) the maximum or minimum of the search range when the hyperparameter reaches it. Its <code>value</code> must be numeric;</li>
+<li><code>'mult'</code>: The <code>protocol_value</code> will multiply (*) the maximum or minimum of the search range when the hyperparameter reaches it. Its <code>value</code> must be numeric.</li>
+</ul>
+<p><strong>Examples</strong></p>
+<pre><code class="language-python">opt_study.optimize(n_trials=100)
+
+opt_study.optimize(
+    n_trials=30,
+    stop_criterium='best_score_gradient',
+    score_gradient=0.01,
+    min_runs_score_gradient=3
+)
+
+opt_study.optimize(
+    n_trials=30,
+    stop_criterium='flex_range',
+    set_flex_protocol={
+        'alpha': [('add', 0.01), ('mult', 2)],
+        'max_depth': [('add', 1), ('add', 2)]
+    }
+)
+</code></pre>
+<pre><code class="language-python">set_flex_protocol = {
+    #Float:
+    'C': (('mult', 0.1), ('add', 1000)),
+    'gamma': (('mult', 0.1), ('add', 100)),
+    'epsilon': (('mult', 0.1), ('add', 1)),
+}
+opt_study.optimize(
+    n_trials=3000,
+    stop_criterium='flex_range',
+    checkpoint=500,
+    checkpoint_path=f'./study/...',
+    set_flex_protocol=set_flex_protocol,
+)
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
