@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="kuka",
-    version="0.3.01",
+    version="0.3.1.2",
     author="tenoriolms",
     description="Library for EDA, data modeling, and ML modeling analysis/interpretation",
     long_description='',#open("README.md").read(),

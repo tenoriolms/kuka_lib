@@ -1,7 +1,11 @@
-.ipynb_checkpoints/
-.vscode/
+ipynb_checkpoints/
+vscode/
 kuka.egg-info/
 __pycache__/
 build/
 dist/
+0_gpt_scripts/
+0_desing/
+site/
+
 

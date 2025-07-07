@@ -20,4 +20,18 @@ Binary installers for the latest released version are available at the Python Pa
 pip install kuka
 ```
 
+## Built With
+
+This library was built using and inspired by the following **amazing** open-source projects:
+
+- [NumPy](https://numpy.org/)
+- [Pandas](https://pandas.pydata.org/)
+- [SciPy](https://scipy.org/)
+- [Matplotlib](https://matplotlib.org/)
+- [tqdm](https://tqdm.github.io/)
+- [scikit-learn](https://scikit-learn.org/stable/)
+
+Thank you to the authors and contributors of these projects!
+
+*For issues, suggestions, or contributions, feel free to open an issue or pull request.*
 

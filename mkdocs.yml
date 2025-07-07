@@ -13,12 +13,18 @@ theme:
       primary: green
       accent: indigo
 
+
 nav:
   - About: index.md
   - API reference:
     - EDA: api_reference/1_eda.md
-    - Preprocessing: api_reference/
-    - Evaluation: api_reference/
+    - Preprocessing: api_reference/2_preprocessing.md
+    - Evaluation: api_reference/3_eval.md
     - Optimization: api_reference/4_opt.md
-    - Interpretation: api_reference/
+    - Interpretation: api_reference/5_interp.md
     - _Utilities: api_reference/0_utils.md
+
+
+extra:
+  version:
+    provider: mike
