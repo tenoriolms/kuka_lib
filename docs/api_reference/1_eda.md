@@ -311,10 +311,6 @@ This function plots scatter plots for all combinations of the provided columns i
 
     Additional keyword arguments passed to `sns.kdeplot`.
 
-- `external_fig_and_ax = None`: `None` or `tuple(Figure, Axes)`
-
-    If provided, uses the given Matplotlib `Figure` and `Axes` for plotting.
-
 - `**kwargs_scatter`
 
     Additional keyword arguments. Passed to `scatter` for further customization.

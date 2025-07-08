@@ -151,8 +151,6 @@ _input_val_dict = {
 	'show_kdeplots': ( (int, None.__class__), None ),
 	'kdeplots_level': ( (float, int), 'range', [0, np.inf] ),
 	'show_kdeplots_of_by': ( bool, None ),
-
-	'external_fig_and_ax': (( None.__class__ , tuple, list), None),
 }
 
 @utils._input_function_validation(_input_val_dict)
@@ -183,8 +181,6 @@ def plot_plairplot(
 		kdeplots_level:int = 3,
 		show_kdeplots_of_by:bool = False,
 		kargs_kdeplots:dict = {},
-
-		external_fig_and_ax = None,
 
 		**kwargs_scatter
 
@@ -260,9 +256,6 @@ def plot_plairplot(
 
 	kargs_kdeplots : dict, optional
 		Additional keyword arguments for seaborn KDE plot.
-	
-	external_fig_and_ax : `None` or `tuple(Figure, Axes)`
-		If provided, uses the given Matplotlib `Figure` and `Axes` for plotting.
 
 	**kwargs_scatter : dict
 		Additional keyword arguments passed to scatter plot calls.
@@ -288,12 +281,6 @@ def plot_plairplot(
 	##########################################################
 
 	df = df.copy()
-
-	# validate external_fig_and_ax
-	if external_fig_and_ax:
-		fig, ax = external_fig_and_ax
-		assert ( isinstance(fig, Figure) ), 'index 0 of "external_fig_and_ax" are not a matplotlib.figure.Figure type'
-		assert ( isinstance(ax, Axes) ), 'index 1 of "external_fig _and_ax" are not a matplotlib.axes._axes.Axes type'
 	
 	if (columns == ['all']):
 		columns = list(df.columns)
@@ -356,14 +343,12 @@ def plot_plairplot(
 	else:
 		colors = colors_reference[0]
 
-	# Create Matplotlib fig and axis
-	if external_fig_and_ax:
-		fig, ax = external_fig_and_ax
-	else:
-		fig, ax = plt.subplots(ncols=len(columns)-1,
+
+	fig, ax = plt.subplots(ncols=len(columns)-1,
 							nrows=len(columns)-1,
 							figsize=figsize)
 	
+
 	################################################################
 	########### 1 - set a piece of code that will repeat ###########
 	################################################################
