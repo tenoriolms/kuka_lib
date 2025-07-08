@@ -116,55 +116,72 @@ This function is useful for visually exploring the frequency distribution of a v
         - `'center'` : place inside the bars
 
 - `labels_format = None`: `str`  
+
     Format string for bar labels (e.g., '.0f', '.1%', etc.).
 
 - `labels_padding = [0, 0]`: `list` or `tuple` of length 2
+
     Offset for labels in points: `[x_offset, y_offset]`.
 
 - `labels_threshold = 0.85`: `float`
+
     Minimum proportion of overlap allowed for the label to remain visible.
 
 - `norm = None`: `bool`
+
     If True, normalize bar heights so they sum to 1. Useful for comparing distributions.
 
 - `bar_width = 0.8`: `float`
+
     Width of the bars in `'bar'` mode (between 0 and 1).
 
 - `hist_bins = 10`: `int`
+
     Number of bins for the histogram.
 
 - `hist_ticklabels_format = '.2f'`: `str` 
+
     Format string for x-axis tick labels in histogram mode.
 
 - `hist_grouped_offset = [None, None]`: `list` or `tuple` of 2 elements
+
     Offset for each group in grouped histogram mode: `[x_offset, y_offset]`.
 
 - `hist_x_log_scale = False`: `bool`
+
     If True, applies log10 scale to the x-axis before plotting.
 
 - `hist_average_line = False`: `bool`
+
     If True, adds a smoothed KDE (kernel density estimate) curve over the histogram.
 
 - `hist_average_line_kargs = {'linewidth':1, 'alpha':0.25, 'edgecolor':'black', 'color':'black'}`: `dict`
+
     Additional keyword arguments for the KDE curve.
 
 - `external_fig_and_ax = None`: `None` or `tuple(Figure, Axes)`
+
     If provided, uses the given Matplotlib `Figure` and `Axes` for plotting.
 
 - `dict_colors_of_variable_by = None`: `dict` or `None`
+
     Custom color mapping for each category in the `by` column.
 
 - `verbose = None`: `bool` 
+
     If True, prints the min and max values of the `variable`.
 
 - `**bar_kargs`  
+
     Additional keyword arguments passed directly to `ax.bar()`.
 
 **Returns**  
 - `fig` (matplotlib.figure.Figure)  
+
     The created Matplotlib Figure object.
 
-- `ax` (matplotlib.axes.Axes or numpy.ndarray of Axes)  
+- `ax` (matplotlib.axes.Axes or numpy.ndarray of Axes) 
+
     The created Axes object(s). May be an array if `by_mode='subploted'`.
 
 **Examples**
@@ -209,79 +226,107 @@ This function plots scatter plots for all combinations of the provided columns i
 **Parameters**
 
 - `df` : `pandas.DataFrame`  
+
   Input dataset containing the columns to be plotted.
 
 **Default Parameters:**
 
 - `columns = ['all']` : `list`
+
     List of columns to include in the plot. If `['all']`, all numeric columns in the DataFrame are used.
 
 - `by = None` : `str` or `None`  
+
     Column used to group data into different categories.  
 
 - `colors_reference = ['black', '#023eff', '#ff7c00', '#1ac938', '#e8000b', '#8b2be2', '#9f4800', '#f14cc1', '#a3a3a3', '#ffc400', '#00d7ff']` : `list`  
+
     List of colors to use for each group in `by`.
 
 - `dict_colors_of_variable_by = None` : `dict or None`  
+
     Dictionary mapping each group to a specific color.
 
 - `zorder = None` : `list or None`
+
     Drawing order of groups. Groups listed later appear on top.
 
 - `markers  = None` : `list or None`
+
     List of marker styles for each group.
 
 - `fontsize = 10.` : `float`
+
     Font size for axis labels.
 
-- `kargs_labels = {}` : `dict`  
+- `kargs_labels = {}` : `dict` 
+
     Additional keyword arguments for label formatting.
 
-- `figsize = (6, 6)` : `tuple`  
+- `figsize = (6, 6)` : `tuple` 
+
     Figure size in inches.
 
 - `wspace = 0.12` : `float`  
+
     Horizontal space between subplots.
 
 - `hspace = 0.12` : `float`  
+
     Vertical space between subplots.
 
 - `s = 10` : `int` 
+
     Marker size in the scatter plot.
 
 - `tick_majorlabel = True` : `bool`  
+
     Whether to show major tick labels.
 
 - `tick_labelsize = None` : `float or None`  
+
     Size of tick labels.
 
 - `tick_labelformat = '{x:.4g}'` : `str`  
+
     Format string for tick labels.
 
 - `margins = 0.08` : `float`  
+
     Margin added around plot limits.
 
 - `show_kdeplots = None` : `int or None`  
+
     If set, overlays KDE contour plots at the specified z-order.
 
 - `kdeplots_level = 3` : `int`  
+
     Number of contour levels in KDE plots.
 
 - `show_kdeplots_of_by = False` : `bool`  
+
     Whether to plot KDE contours separately for each group in `by`.
 
 - `kargs_kdeplots = {}` : `dict`  
+
     Additional keyword arguments passed to `sns.kdeplot`.
 
+- `external_fig_and_ax = None`: `None` or `tuple(Figure, Axes)`
+
+    If provided, uses the given Matplotlib `Figure` and `Axes` for plotting.
+
 - `**kwargs_scatter`
+
     Additional keyword arguments. Passed to `scatter` for further customization.
 
 **Returns**
 
 - `fig` : `matplotlib.figure.Figure`  
+
   The generated figure object.
 
 - `ax` : `numpy.ndarray` of `matplotlib.axes.Axes`  
+
   A 2D array of Axes containing the scatter plots.
 
 **Examples**
