@@ -670,72 +670,75 @@ fig.show()
         - <code>'center'</code> : place inside the bars</p>
 </li>
 <li>
-<p><code>labels_format = None</code>: <code>str</code><br />
-    Format string for bar labels (e.g., '.0f', '.1%', etc.).</p>
+<p><code>labels_format = None</code>: <code>str</code>  </p>
+<p>Format string for bar labels (e.g., '.0f', '.1%', etc.).</p>
 </li>
 <li>
-<p><code>labels_padding = [0, 0]</code>: <code>list</code> or <code>tuple</code> of length 2
-    Offset for labels in points: <code>[x_offset, y_offset]</code>.</p>
+<p><code>labels_padding = [0, 0]</code>: <code>list</code> or <code>tuple</code> of length 2</p>
+<p>Offset for labels in points: <code>[x_offset, y_offset]</code>.</p>
 </li>
 <li>
-<p><code>labels_threshold = 0.85</code>: <code>float</code>
-    Minimum proportion of overlap allowed for the label to remain visible.</p>
+<p><code>labels_threshold = 0.85</code>: <code>float</code></p>
+<p>Minimum proportion of overlap allowed for the label to remain visible.</p>
 </li>
 <li>
-<p><code>norm = None</code>: <code>bool</code>
-    If True, normalize bar heights so they sum to 1. Useful for comparing distributions.</p>
+<p><code>norm = None</code>: <code>bool</code></p>
+<p>If True, normalize bar heights so they sum to 1. Useful for comparing distributions.</p>
 </li>
 <li>
-<p><code>bar_width = 0.8</code>: <code>float</code>
-    Width of the bars in <code>'bar'</code> mode (between 0 and 1).</p>
+<p><code>bar_width = 0.8</code>: <code>float</code></p>
+<p>Width of the bars in <code>'bar'</code> mode (between 0 and 1).</p>
 </li>
 <li>
-<p><code>hist_bins = 10</code>: <code>int</code>
-    Number of bins for the histogram.</p>
+<p><code>hist_bins = 10</code>: <code>int</code></p>
+<p>Number of bins for the histogram.</p>
 </li>
 <li>
-<p><code>hist_ticklabels_format = '.2f'</code>: <code>str</code> 
-    Format string for x-axis tick labels in histogram mode.</p>
+<p><code>hist_ticklabels_format = '.2f'</code>: <code>str</code> </p>
+<p>Format string for x-axis tick labels in histogram mode.</p>
 </li>
 <li>
-<p><code>hist_grouped_offset = [None, None]</code>: <code>list</code> or <code>tuple</code> of 2 elements
-    Offset for each group in grouped histogram mode: <code>[x_offset, y_offset]</code>.</p>
+<p><code>hist_grouped_offset = [None, None]</code>: <code>list</code> or <code>tuple</code> of 2 elements</p>
+<p>Offset for each group in grouped histogram mode: <code>[x_offset, y_offset]</code>.</p>
 </li>
 <li>
-<p><code>hist_x_log_scale = False</code>: <code>bool</code>
-    If True, applies log10 scale to the x-axis before plotting.</p>
+<p><code>hist_x_log_scale = False</code>: <code>bool</code></p>
+<p>If True, applies log10 scale to the x-axis before plotting.</p>
 </li>
 <li>
-<p><code>hist_average_line = False</code>: <code>bool</code>
-    If True, adds a smoothed KDE (kernel density estimate) curve over the histogram.</p>
+<p><code>hist_average_line = False</code>: <code>bool</code></p>
+<p>If True, adds a smoothed KDE (kernel density estimate) curve over the histogram.</p>
 </li>
 <li>
-<p><code>hist_average_line_kargs = {'linewidth':1, 'alpha':0.25, 'edgecolor':'black', 'color':'black'}</code>: <code>dict</code>
-    Additional keyword arguments for the KDE curve.</p>
+<p><code>hist_average_line_kargs = {'linewidth':1, 'alpha':0.25, 'edgecolor':'black', 'color':'black'}</code>: <code>dict</code></p>
+<p>Additional keyword arguments for the KDE curve.</p>
 </li>
 <li>
-<p><code>external_fig_and_ax = None</code>: <code>None</code> or <code>tuple(Figure, Axes)</code>
-    If provided, uses the given Matplotlib <code>Figure</code> and <code>Axes</code> for plotting.</p>
+<p><code>external_fig_and_ax = None</code>: <code>None</code> or <code>tuple(Figure, Axes)</code></p>
+<p>If provided, uses the given Matplotlib <code>Figure</code> and <code>Axes</code> for plotting.</p>
 </li>
 <li>
-<p><code>dict_colors_of_variable_by = None</code>: <code>dict</code> or <code>None</code>
-    Custom color mapping for each category in the <code>by</code> column.</p>
+<p><code>dict_colors_of_variable_by = None</code>: <code>dict</code> or <code>None</code></p>
+<p>Custom color mapping for each category in the <code>by</code> column.</p>
 </li>
 <li>
-<p><code>verbose = None</code>: <code>bool</code> 
-    If True, prints the min and max values of the <code>variable</code>.</p>
+<p><code>verbose = None</code>: <code>bool</code> </p>
+<p>If True, prints the min and max values of the <code>variable</code>.</p>
 </li>
 <li>
-<p><code>**bar_kargs</code><br />
-    Additional keyword arguments passed directly to <code>ax.bar()</code>.</p>
+<p><code>**bar_kargs</code>  </p>
+<p>Additional keyword arguments passed directly to <code>ax.bar()</code>.</p>
 </li>
 </ul>
 <p><strong>Returns</strong><br />
-- <code>fig</code> (matplotlib.figure.Figure)<br />
-    The created Matplotlib Figure object.</p>
+- <code>fig</code> (matplotlib.figure.Figure)  </p>
+<pre><code>The created Matplotlib Figure object.
+</code></pre>
 <ul>
-<li><code>ax</code> (matplotlib.axes.Axes or numpy.ndarray of Axes)<br />
-    The created Axes object(s). May be an array if <code>by_mode='subploted'</code>.</li>
+<li>
+<p><code>ax</code> (matplotlib.axes.Axes or numpy.ndarray of Axes) </p>
+<p>The created Axes object(s). May be an array if <code>by_mode='subploted'</code>.</p>
+</li>
 </ul>
 <p><strong>Examples</strong></p>
 <pre><code class="language-python">import pandas as pd
@@ -759,107 +762,105 @@ plot_dist(df, variable='Category', mode='bar', by='Value', by_mode='grouped')
 <p>This function plots scatter plots for all combinations of the provided columns in a DataFrame, optionally grouped by a categorical column (<code>by</code>). It allows color and marker customization for each group and can overlay KDE contours.</p>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><code>df</code> : <code>pandas.DataFrame</code><br />
-  Input dataset containing the columns to be plotted.</li>
+<li><code>df</code> : <code>pandas.DataFrame</code>  </li>
 </ul>
+<p>Input dataset containing the columns to be plotted.</p>
 <p><strong>Default Parameters:</strong></p>
 <ul>
 <li>
-<p><code>columns = ['all']</code> : <code>list</code>
-    List of columns to include in the plot. If <code>['all']</code>, all numeric columns in the DataFrame are used.</p>
+<p><code>columns = ['all']</code> : <code>list</code></p>
+<p>List of columns to include in the plot. If <code>['all']</code>, all numeric columns in the DataFrame are used.</p>
 </li>
 <li>
-<p><code>by = None</code> : <code>str</code> or <code>None</code><br />
-    Column used to group data into different categories.  </p>
+<p><code>by = None</code> : <code>str</code> or <code>None</code>  </p>
+<p>Column used to group data into different categories.  </p>
 </li>
 <li>
-<p><code>colors_reference = ['black', '#023eff', '#ff7c00', '#1ac938', '#e8000b', '#8b2be2', '#9f4800', '#f14cc1', '#a3a3a3', '#ffc400', '#00d7ff']</code> : <code>list</code><br />
-    List of colors to use for each group in <code>by</code>.</p>
+<p><code>colors_reference = ['black', '#023eff', '#ff7c00', '#1ac938', '#e8000b', '#8b2be2', '#9f4800', '#f14cc1', '#a3a3a3', '#ffc400', '#00d7ff']</code> : <code>list</code>  </p>
+<p>List of colors to use for each group in <code>by</code>.</p>
 </li>
 <li>
-<p><code>dict_colors_of_variable_by = None</code> : <code>dict or None</code><br />
-    Dictionary mapping each group to a specific color.</p>
+<p><code>dict_colors_of_variable_by = None</code> : <code>dict or None</code>  </p>
+<p>Dictionary mapping each group to a specific color.</p>
 </li>
 <li>
-<p><code>zorder = None</code> : <code>list or None</code>
-    Drawing order of groups. Groups listed later appear on top.</p>
+<p><code>zorder = None</code> : <code>list or None</code></p>
+<p>Drawing order of groups. Groups listed later appear on top.</p>
 </li>
 <li>
-<p><code>markers  = None</code> : <code>list or None</code>
-    List of marker styles for each group.</p>
+<p><code>markers  = None</code> : <code>list or None</code></p>
+<p>List of marker styles for each group.</p>
 </li>
 <li>
-<p><code>fontsize = 10.</code> : <code>float</code>
-    Font size for axis labels.</p>
+<p><code>fontsize = 10.</code> : <code>float</code></p>
+<p>Font size for axis labels.</p>
 </li>
 <li>
-<p><code>kargs_labels = {}</code> : <code>dict</code><br />
-    Additional keyword arguments for label formatting.</p>
+<p><code>kargs_labels = {}</code> : <code>dict</code> </p>
+<p>Additional keyword arguments for label formatting.</p>
 </li>
 <li>
-<p><code>figsize = (6, 6)</code> : <code>tuple</code><br />
-    Figure size in inches.</p>
+<p><code>figsize = (6, 6)</code> : <code>tuple</code> </p>
+<p>Figure size in inches.</p>
 </li>
 <li>
-<p><code>wspace = 0.12</code> : <code>float</code><br />
-    Horizontal space between subplots.</p>
+<p><code>wspace = 0.12</code> : <code>float</code>  </p>
+<p>Horizontal space between subplots.</p>
 </li>
 <li>
-<p><code>hspace = 0.12</code> : <code>float</code><br />
-    Vertical space between subplots.</p>
+<p><code>hspace = 0.12</code> : <code>float</code>  </p>
+<p>Vertical space between subplots.</p>
 </li>
 <li>
-<p><code>s = 10</code> : <code>int</code> 
-    Marker size in the scatter plot.</p>
+<p><code>s = 10</code> : <code>int</code> </p>
+<p>Marker size in the scatter plot.</p>
 </li>
 <li>
-<p><code>tick_majorlabel = True</code> : <code>bool</code><br />
-    Whether to show major tick labels.</p>
+<p><code>tick_majorlabel = True</code> : <code>bool</code>  </p>
+<p>Whether to show major tick labels.</p>
 </li>
 <li>
-<p><code>tick_labelsize = None</code> : <code>float or None</code><br />
-    Size of tick labels.</p>
+<p><code>tick_labelsize = None</code> : <code>float or None</code>  </p>
+<p>Size of tick labels.</p>
 </li>
 <li>
-<p><code>tick_labelformat = '{x:.4g}'</code> : <code>str</code><br />
-    Format string for tick labels.</p>
+<p><code>tick_labelformat = '{x:.4g}'</code> : <code>str</code>  </p>
+<p>Format string for tick labels.</p>
 </li>
 <li>
-<p><code>margins = 0.08</code> : <code>float</code><br />
-    Margin added around plot limits.</p>
+<p><code>margins = 0.08</code> : <code>float</code>  </p>
+<p>Margin added around plot limits.</p>
 </li>
 <li>
-<p><code>show_kdeplots = None</code> : <code>int or None</code><br />
-    If set, overlays KDE contour plots at the specified z-order.</p>
+<p><code>show_kdeplots = None</code> : <code>int or None</code>  </p>
+<p>If set, overlays KDE contour plots at the specified z-order.</p>
 </li>
 <li>
-<p><code>kdeplots_level = 3</code> : <code>int</code><br />
-    Number of contour levels in KDE plots.</p>
+<p><code>kdeplots_level = 3</code> : <code>int</code>  </p>
+<p>Number of contour levels in KDE plots.</p>
 </li>
 <li>
-<p><code>show_kdeplots_of_by = False</code> : <code>bool</code><br />
-    Whether to plot KDE contours separately for each group in <code>by</code>.</p>
+<p><code>show_kdeplots_of_by = False</code> : <code>bool</code>  </p>
+<p>Whether to plot KDE contours separately for each group in <code>by</code>.</p>
 </li>
 <li>
-<p><code>kargs_kdeplots = {}</code> : <code>dict</code><br />
-    Additional keyword arguments passed to <code>sns.kdeplot</code>.</p>
+<p><code>kargs_kdeplots = {}</code> : <code>dict</code>  </p>
+<p>Additional keyword arguments passed to <code>sns.kdeplot</code>.</p>
 </li>
 <li>
-<p><code>**kwargs_scatter</code>
-    Additional keyword arguments. Passed to <code>scatter</code> for further customization.</p>
+<p><code>**kwargs_scatter</code></p>
+<p>Additional keyword arguments. Passed to <code>scatter</code> for further customization.</p>
 </li>
 </ul>
 <p><strong>Returns</strong></p>
 <ul>
-<li>
-<p><code>fig</code> : <code>matplotlib.figure.Figure</code><br />
-  The generated figure object.</p>
-</li>
-<li>
-<p><code>ax</code> : <code>numpy.ndarray</code> of <code>matplotlib.axes.Axes</code><br />
-  A 2D array of Axes containing the scatter plots.</p>
-</li>
+<li><code>fig</code> : <code>matplotlib.figure.Figure</code>  </li>
 </ul>
+<p>The generated figure object.</p>
+<ul>
+<li><code>ax</code> : <code>numpy.ndarray</code> of <code>matplotlib.axes.Axes</code>  </li>
+</ul>
+<p>A 2D array of Axes containing the scatter plots.</p>
 <p><strong>Examples</strong></p>
 <pre><code class="language-python">fig, ax = plot_plairplot(df, columns=['height', 'weight', 'age'], by='gender', s=20, show_kdeplots=2)
 </code></pre>
